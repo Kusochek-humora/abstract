@@ -6,11 +6,11 @@ export function initHeader() {
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
-  // текущая страница в меню — по адресу
-  const clean = (path) => path.replace(/index\.html$/, '');
+  // текущая страница в меню — по имени файла (путь может содержать /репо/); body[data-nav] — раздел для вложенных страниц
+  const pageName = (path) => path.split('/').pop().replace(/\.html$/, '') || 'index';
+  const current = pageName(document.body.dataset.nav || location.pathname);
   document.querySelectorAll('.menu__link').forEach((link) => {
-    const current = document.body.dataset.nav || location.pathname; // data-nav — раздел для вложенных страниц
-    const active = clean(new URL(link.href).pathname) === clean(current);
+    const active = pageName(new URL(link.href).pathname) === current;
     link.classList.toggle('menu__link--active', active);
     if (active) link.setAttribute('aria-current', 'page');
     else link.removeAttribute('aria-current');

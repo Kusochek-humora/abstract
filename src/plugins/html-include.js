@@ -60,6 +60,12 @@ function renderIcons(html, root) {
   });
 }
 
+// href="/about.html" -> href="./about.html", href="/" -> href="./".
+// Все страницы лежат в корне, поэтому сайт работает и на домене, и в подпапке (GitHub Pages: логин.github.io/репо/).
+function relativizeLinks(html) {
+  return html.replace(/(<a\s[^>]*?href=")\/(?!\/)([^"]*)"/g, '$1./$2"');
+}
+
 export default function htmlInclude() {
   let root;
 
@@ -70,7 +76,7 @@ export default function htmlInclude() {
     },
     transformIndexHtml: {
       order: 'pre',
-      handler: (html) => renderIcons(render(html, root), root),
+      handler: (html) => relativizeLinks(renderIcons(render(html, root), root)),
     },
     configureServer(server) {
       // при правке html-партиала или иконки перезагружаем страницу

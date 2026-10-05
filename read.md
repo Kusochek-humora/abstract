@@ -35,5 +35,11 @@ npm run preview  # посмотреть сборку
 
 ## Деплой на GitHub Pages
 
-В `vite.config.js` уже стоит `base: './'`. Раскомментировать `build.outDir: 'docs'`,
-выполнить `npm run build`, закоммитить `docs/` и выбрать в Settings → Pages ветку `main` и папку `/docs`.
+Автоматический, через GitHub Actions (`.github/workflows/deploy.yml`): каждый push в `main` собирает проект и публикует `dist/`.
+
+1. Запушить репозиторий на GitHub.
+2. Settings → Pages → Source: **GitHub Actions**.
+3. Адрес сайта: `https://<логин>.github.io/<репозиторий>/`.
+
+Все страницы лежат в корне проекта, ссылки между ними в сборке превращаются в относительные (`./about.html`),
+поэтому сайт работает и в подпапке `/репозиторий/`, и на своём домене. Новую страницу нужно добавить в `build.rollupOptions.input` в `vite.config.js`.
