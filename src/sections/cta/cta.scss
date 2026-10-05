@@ -302,6 +302,11 @@
 
   .cta__body {
     grid-template-columns: 777fr 553fr;
+
+    // иначе эта колонка перебивает мобильную раскладку и форма остаётся узкой
+    @include media("lg") {
+      grid-template-columns: minmax(0, 1fr);
+    }
   }
 
   .cta__decor {
