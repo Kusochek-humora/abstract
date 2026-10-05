@@ -1,0 +1,184 @@
+@use "@/styles/abstracts" as *;
+
+.advantages {
+  &__head {
+    display: flex;
+    gap: 122px;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 40px;
+
+    @include media("xl") {
+      gap: 40px;
+    }
+    @include media("lg") {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  &__title {
+    flex: 0 0 553px;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.02em;
+
+    @include media("lg") {
+      flex-basis: auto;
+    }
+    @include media("md") {
+      font-size: fluid(28px, 40px);
+    }
+  }
+
+  &__title-accent {
+    color: $primary;
+  }
+
+  &__lead {
+    flex: 0 1 665px;
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    opacity: 0.7;
+
+    // в колонке flex-basis задавал бы высоту, а не ширину
+    @include media("lg") {
+      flex: none;
+    }
+  }
+
+  // средняя карточка выше крайних на 50px
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    align-items: start;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include media("lg") {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.adv-card {
+  --adv-dark: #{$dark};
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 581px;
+  margin-top: 50px;
+  overflow: hidden;
+  padding: 20px 20px 29px;
+  border-radius: 10px;
+  background-color: $dark;
+  color: $white;
+
+  // затемнение к нижнему краю, где лежит текст
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 1; // выше фото (оно позиционировано и иначе перекрывало бы градиент)
+    inset: 0;
+    background: linear-gradient(180deg, rgba(20, 21, 49, 0) 32.81%, var(--adv-dark) 83.48%);
+  }
+
+  // тонкая рамка поверх фото
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    height: 320px;
+    border: 0.5px solid rgba($white, 0.4);
+    border-radius: 10px;
+  }
+
+  &__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+  }
+
+  &__num {
+    position: absolute;
+    z-index: 2;
+    top: 30px;
+    left: 30px;
+    @include flex-center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background-color: $primary;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  &__body {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__label {
+    font-size: 12px;
+    line-height: 1;
+    color: $accent;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    opacity: 0.7;
+  }
+
+  // средняя карточка: текст сверху, фото снизу
+  &--top {
+    justify-content: flex-start;
+    margin-top: 0;
+    padding: 29px 20px 20px;
+
+    &::before {
+      background: linear-gradient(0deg, rgba(20, 21, 49, 0) 32.81%, var(--adv-dark) 83.48%);
+    }
+
+    &::after {
+      top: auto;
+      bottom: 20px;
+    }
+
+    .adv-card__num {
+      top: auto;
+      right: 30px;
+      bottom: 30px;
+      left: auto;
+    }
+  }
+
+  @include media("lg") {
+    margin-top: 0 !important;
+    min-height: 520px;
+  }
+}

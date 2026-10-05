@@ -9,7 +9,7 @@ body {
   text-rendering: optimizeSpeed;
   font-family: $font-main;
   color: $black;
-  background-color: $white;
+  background-color: $bg;
 }
 
 .container {
@@ -46,6 +46,11 @@ body {
   &:focus-visible {
     transform: none;
   }
+}
+
+// отступ между секциями — 80px везде
+main > * + * {
+  margin-top: $section-gap;
 }
 
 main:focus {

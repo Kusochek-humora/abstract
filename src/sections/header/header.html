@@ -1,0 +1,52 @@
+<header class="header">
+  <div class="container header__inner">
+    <a class="header__logo" href="/" aria-label="ALUSTRACT — на главную">
+      <icon name="logo" class="header__logo-icon"></icon>
+    </a>
+
+    <div class="header__actions">
+      <a class="icon-btn" href="tel:+70000000000" aria-label="Позвонить">
+        <icon name="phone"></icon>
+      </a>
+      <a class="icon-btn" href="https://wa.me/70000000000" target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
+        <icon name="whatsapp"></icon>
+      </a>
+      <button class="menu-btn" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu" data-menu-open>
+        <icon name="menu"></icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="menu" id="menu" aria-hidden="true">
+    <div class="menu__backdrop" data-menu-close></div>
+    <nav class="menu__panel" aria-label="Главное меню">
+      <button class="menu__close" type="button" aria-label="Закрыть меню" data-menu-close>
+        <icon name="close"></icon>
+      </button>
+
+      <ul class="menu__list">
+        <li>
+          <a class="menu__link menu__link--active" href="/" aria-current="page">
+            <icon name="logo-mark" class="menu__link-icon"></icon>Главная
+          </a>
+        </li>
+        <li><a class="menu__link" href="/about.html">О компании</a></li>
+        <li><a class="menu__link" href="/catalog.html">Каталог продукции</a></li>
+        <li><a class="menu__link" href="/projects.html">Проекты</a></li>
+        <li><a class="menu__link" href="/partnership.html">Партнерство</a></li>
+        <li><a class="menu__link" href="/contacts.html">Контакты</a></li>
+      </ul>
+
+      <div class="menu__socials">
+        <a class="menu__social" href="tel:+70000000000" aria-label="Позвонить"><icon name="phone" class="menu__social-icon menu__social-icon--phone"></icon></a>
+        <a class="menu__social" href="https://wa.me/70000000000" target="_blank" rel="noopener" aria-label="WhatsApp"><icon name="whatsapp-outline" class="menu__social-icon"></icon></a>
+        <a class="menu__social" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><icon name="instagram" class="menu__social-icon"></icon></a>
+      </div>
+
+      <div class="menu__buttons">
+        <a class="btn btn--primary" href="#contact-form">Обсудить проект</a>
+        <a class="btn btn--outline" href="/catalog.html">В каталог</a>
+      </div>
+    </nav>
+  </div>
+</header>

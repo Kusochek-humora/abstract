@@ -1,0 +1,59 @@
+<section class="cta" id="contact-form">
+  <div class="container cta__inner">
+    <div class="cta__head">
+      <div class="cta__intro">
+        <h2 class="cta__title">Получите расчет фасадного решения</h2>
+        <p class="cta__subtitle">Оставьте заявку, и наши специалисты подготовят предварительный расчет и проконсультируют<br />по материалам.</p>
+      </div>
+      <p class="cta__lead">Если у вас есть вопросы по продукции, требуется консультация или необходимо подготовить расчет материалов, оставьте заявку. Наши специалисты свяжутся с вами для уточнения деталей проекта.</p>
+    </div>
+
+    <div class="cta__body">
+      <form class="cta__form" action="#" method="post" novalidate data-validate>
+        <h3 class="cta__form-title">Обратная связь</h3>
+
+        <div class="cta__fields">
+          <div class="field cta__field">
+            <label class="cta__label" for="cta-name">ФИО</label>
+            <input class="cta__input" id="cta-name" name="name" type="text" required minlength="2" maxlength="100" autocomplete="name" />
+            <p class="field__error" role="alert" hidden></p>
+          </div>
+
+          <div class="field cta__field">
+            <label class="cta__label" for="cta-phone">Номер телефона</label>
+            <input class="cta__input" id="cta-phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" />
+            <p class="field__error" role="alert" hidden></p>
+          </div>
+
+          <div class="field cta__field cta__field--wide">
+            <label class="cta__label" for="cta-message">Вопросы и предложения</label>
+            <textarea class="cta__input cta__input--textarea" id="cta-message" name="message" rows="2" maxlength="1000"></textarea>
+            <p class="field__error" role="alert" hidden></p>
+          </div>
+        </div>
+
+        <div class="field cta__agree">
+          <label class="cta__check">
+            <input class="cta__check-input" type="checkbox" name="agree" required />
+            <span class="cta__check-box" aria-hidden="true"></span>
+            <span class="cta__check-text">Я соглашаюсь с политикой компании и разрешаю обработку персональных данных</span>
+          </label>
+          <p class="field__error" role="alert" hidden></p>
+        </div>
+
+        <button class="btn btn--primary cta__submit" type="submit">Отправить заявку</button>
+        <p class="field__success" role="status" hidden>Спасибо! Мы свяжемся с вами в ближайшее время.</p>
+      </form>
+
+      <nav class="cta__links" aria-label="Другие разделы сайта">
+        <p class="cta__links-title">Другие разделы сайта</p>
+        <ul class="cta__links-list">
+          <li><a class="cta__link" href="/catalog.html">Каталог продукции</a></li>
+          <li><a class="cta__link" href="/about.html">О компании</a></li>
+          <li><a class="cta__link" href="/projects.html">Проекты</a></li>
+          <li><a class="cta__link" href="/partnership.html">Партнерство</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</section>

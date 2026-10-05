@@ -1,0 +1,255 @@
+@use "@/styles/abstracts" as *;
+
+.footer {
+  margin-top: $section-gap;
+  padding: 102px 0 59px;
+  background-color: $dark;
+  color: $white;
+
+  @include media("lg") {
+    padding: 60px 0 40px;
+  }
+
+  &__inner {
+    display: flex;
+    gap: 123px;
+    align-items: stretch;
+
+    @include media("xl") {
+      gap: 60px;
+    }
+    @include media("lg") {
+      flex-direction: column;
+      gap: 40px;
+    }
+  }
+
+  // левая колонка
+  &__brand {
+    display: flex;
+    flex: 0 0 215px;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 40px;
+
+    // на планшете/мобиле «Политика» уходит вниз, под колонки
+    @include media("lg") {
+      display: contents;
+    }
+  }
+
+  &__brand-top {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: flex-start;
+
+    @include media("lg") {
+      order: 1;
+    }
+  }
+
+  &__logo {
+    width: 215px;
+    color: $lilac;
+
+    svg {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    gap: 31px;
+    color: $lilac;
+  }
+
+  &__social {
+    display: block;
+    width: 36px;
+    height: 36px;
+    transition: $transition;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    @include hover {
+      color: $accent;
+    }
+  }
+
+  // правая часть
+  &__main {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 40px;
+    min-width: 0;
+
+    @include media("lg") {
+      order: 2;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 10px;
+
+    @include media("sm") {
+      flex-direction: column;
+      align-items: stretch; // кнопка на всю ширину
+    }
+  }
+
+  &__field {
+    flex: 1;
+    min-width: 0;
+
+    @include media("sm") {
+      flex: none;
+      width: 100%;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    height: 50px;
+    padding: 10px 20px;
+    border: 0;
+    border-radius: 10px; // как у кнопок
+    -webkit-appearance: none; // мобильные браузеры иначе рисуют системный вид и сбрасывают скругление
+    appearance: none;
+    background-color: rgba(149, 149, 149, 0.5);
+    backdrop-filter: blur(5px);
+    font-size: 14px;
+    font-weight: 600;
+    color: $white;
+    transition: $transition;
+
+    &::placeholder {
+      color: rgba($white, 0.5);
+    }
+
+    &:focus-visible {
+      outline: 1px solid $accent;
+    }
+  }
+
+  &__submit {
+    flex: 0 0 215px;
+
+    @include media("sm") {
+      flex: none; // в колонке basis задавал бы высоту
+    }
+  }
+
+  &__columns {
+    display: flex;
+    flex: 1;
+    gap: 126px;
+
+    @include media("xl") {
+      gap: 40px;
+    }
+    @include media("md") {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &--menu {
+      flex: 0 0 102px;
+    }
+    &--catalog {
+      flex: 0 0 197px;
+    }
+    &--contacts {
+      flex: 0 0 198px;
+      gap: 30px;
+    }
+
+    @include media("md") {
+      flex: 1 1 40% !important;
+
+      &--contacts {
+        flex-basis: 100% !important; // адрес и телефон — на всю ширину
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  &__text,
+  &__link {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  a.footer__link {
+    width: fit-content;
+    transition: $transition;
+
+    @include hover {
+      color: $accent;
+    }
+  }
+
+  // «Политика конфиденциальности», «Made by» — с мятным подчёркиванием
+  &__underlined {
+    display: block;
+    padding: 10px 0;
+    border-bottom: 3px solid $accent;
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    transition: $transition;
+
+    @include media("lg") {
+      order: 3;
+    }
+
+    @include hover {
+      color: $accent;
+    }
+  }
+
+  &__made-by {
+    flex: 0 0 132px;
+    align-self: flex-end;
+    margin-left: auto;
+
+    @include media("md") {
+      flex-basis: auto;
+      margin-left: 0;
+    }
+  }
+}

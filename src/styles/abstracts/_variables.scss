@@ -9,14 +9,24 @@ $breakpoints: (
 // colors
 $white: #fff;
 $black: #000;
-$primary: #03467c;
-$primary-hover: #02345c;
+$primary: #5c19a1;
+$primary-hover: #451379;
+$accent: #66eeba; // мятный акцент (подчёркивания, hover белых кнопок)
+$bg: #fbf6ff; // фон страниц
+$dark: #141531; // фон футера
+$lilac: #d3adf6;
+$error: #ff6b6b;
+
+$gradient-primary: linear-gradient(95.7deg, #8c5db7 13%, #5c19a1 115%);
+$gradient-primary-hover: linear-gradient(95.7deg, #7a49a8 13%, #4a1288 115%);
 
 // fonts
-$font-main: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+$font-main: "TikTok Sans", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+$font-secondary: "Roboto", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
 
 // layout
-$container-width: 1280px;
-$container-padding: 20px;
+$container-width: 1340px;
+$container-padding: 50px;
+$section-gap: 80px; // отступ между секциями
 
-$transition: 0.3s all;
+$transition: 0.3s ease all;

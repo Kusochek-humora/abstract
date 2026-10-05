@@ -1,6 +1,6 @@
 # Vite starter
 
-Стартовая сборка для вёрстки: Vite, чистые HTML / JS, SCSS, i18next.
+Стартовая сборка для вёрстки: Vite, чистые HTML / JS, SCSS.
 
 ## Запуск
 
@@ -19,9 +19,6 @@ npm run preview  # посмотреть сборку
 - **Иконки.** SVG кладутся в `src/assets/icons/`, вставляются `<icon name="burger-menu" class="..."></icon>` —
   при сборке превращаются в inline-svg. Одноцветные иконки сохранять с `fill="currentColor"` / `stroke="currentColor"`.
 - **Картинки.** `src/assets/img/`, в HTML — путь от корня: `/src/assets/img/photo.webp`.
-- **Переводы.** `src/i18n/locales/*.json`. В разметке: `data-i18n="hero.title"`,
-  для атрибутов — `data-i18n-placeholder`, `data-i18n-title`, `data-i18n-alt`, `data-i18n-aria-label`.
-  Язык: `?lang=kz` → сохранённый выбор → язык браузера → `ru`. Список языков — `SUPPORTED_LANGS` в `src/i18n/index.js`.
 - **SCSS.** В каждом файле: `@use "@/styles/abstracts" as *;`
   - `@include media("lg") { ... }` — desktop-first, `max-width` (брейкпоинты в `_variables.scss`);
   - `fluid(32px, 60px)` — плавный размер через `clamp()` между 375 и 768px;

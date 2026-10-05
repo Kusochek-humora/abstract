@@ -1,0 +1,53 @@
+@use "@/styles/abstracts" as *;
+
+.projects {
+  // следующая карточка выглядывает за правый край, но не создаёт горизонтальный скролл страницы
+  overflow: hidden;
+
+  &__head {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 50px;
+
+    @include media("md") {
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__title {
+    max-width: 1013px;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.02em;
+
+    @include media("md") {
+      font-size: fluid(24px, 40px);
+    }
+  }
+
+  &__title-accent {
+    color: $primary;
+  }
+
+  // слайдер занимает контейнер, но карточки видны и справа от него (до края экрана)
+  &__slider {
+    overflow: visible;
+  }
+
+  &__slide {
+    width: 440px;
+    height: auto;
+
+    @include media("md") {
+      width: 320px;
+    }
+    @include media("sm") {
+      width: calc(100% - 40px);
+    }
+  }
+}

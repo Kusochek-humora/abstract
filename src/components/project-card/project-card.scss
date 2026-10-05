@@ -1,0 +1,64 @@
+@use "@/styles/abstracts" as *;
+
+// Карточка проекта: слайдер на главной, сетка на странице «Проекты», «Проекты с похожими решениями»
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 100%;
+  padding: 30px;
+  border-radius: 10px;
+  background-image: $gradient-primary;
+  color: $white;
+
+  @include media("sm") {
+    padding: 20px;
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 380 / 203;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  &__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__label {
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: $lilac;
+    opacity: 0.7;
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    opacity: 0.7;
+  }
+
+  &__btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,140 @@
+@use "@/styles/abstracts" as *;
+
+.products {
+  &__title {
+    max-width: 810px;
+    margin-bottom: 36px;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.02em;
+
+    @include media("md") {
+      font-size: fluid(28px, 40px);
+    }
+  }
+
+  &__title-accent {
+    color: $primary;
+  }
+
+  // слева большая карточка на 2 ряда, справа две
+  &__grid {
+    display: grid;
+    grid-template-columns: 553fr 777fr;
+    grid-template-rows: repeat(2, 242px);
+    gap: 9px 10px;
+
+    @include media("lg") {
+      grid-template-columns: 1fr;
+      grid-template-rows: none;
+      gap: 10px;
+    }
+  }
+}
+
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 30px;
+  overflow: hidden;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #e6d8f4;
+
+  // картинка прижата к правому нижнему углу, текст — поверх неё
+  &__img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    max-width: none;
+    height: 100%;
+    width: auto;
+    pointer-events: none;
+  }
+
+  &__body,
+  &__buttons {
+    position: relative;
+    max-width: 410px;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    opacity: 0.7;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 10px;
+
+    .btn {
+      flex: 1;
+    }
+  }
+
+  // большая фиолетовая карточка
+  &--accent {
+    grid-row: span 2;
+    background-image: $gradient-primary;
+    color: $white;
+
+    .product-card__img {
+      height: auto;
+      width: 403px;
+      max-width: 73%;
+    }
+
+    .product-card__body,
+    .product-card__buttons {
+      max-width: 493px;
+    }
+
+    @include media("lg") {
+      grid-row: auto;
+      min-height: 493px;
+    }
+  }
+
+  @include media("lg") {
+    // на узких экранах картинка не накладывается на текст, а идёт под ним
+    &:not(&--accent) {
+      padding-bottom: 0;
+
+      .product-card__img {
+        position: static;
+        order: 3;
+        align-self: flex-end;
+        height: 200px;
+        max-width: 80%;
+        object-fit: contain;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  @include media("sm") {
+    padding: 20px;
+
+    &__buttons {
+      flex-direction: column;
+    }
+  }
+}
