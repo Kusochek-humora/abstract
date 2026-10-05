@@ -1,0 +1,34 @@
+@use "@/styles/abstracts" as *;
+
+// <nav class="breadcrumbs"><ol class="breadcrumbs__list"><li><a href="/">Главная</a></li><li aria-current="page">Страница</li></ol></nav>
+.breadcrumbs {
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 20px;
+    line-height: 1.2;
+    color: $accent;
+
+    @include media("md") {
+      font-size: 16px;
+    }
+
+    // разделитель «/» между пунктами
+    li + li::before {
+      content: "/";
+      margin-right: 8px;
+    }
+
+    a {
+      transition: $transition;
+
+      @include hover {
+        color: $white;
+      }
+    }
+  }
+}

@@ -6,6 +6,16 @@ export function initHeader() {
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
+  // текущая страница в меню — по адресу
+  const clean = (path) => path.replace(/index\.html$/, '');
+  document.querySelectorAll('.menu__link').forEach((link) => {
+    const current = document.body.dataset.nav || location.pathname; // data-nav — раздел для вложенных страниц
+    const active = clean(new URL(link.href).pathname) === clean(current);
+    link.classList.toggle('menu__link--active', active);
+    if (active) link.setAttribute('aria-current', 'page');
+    else link.removeAttribute('aria-current');
+  });
+
   const menu = document.getElementById('menu');
   const openBtn = document.querySelector('[data-menu-open]');
   if (!menu || !openBtn) return;

@@ -1,0 +1,54 @@
+@use "@/styles/abstracts" as *;
+
+.guarantees {
+  &__head {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    align-items: center;
+
+    @include media("lg") {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__title {
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+
+    @include media("md") {
+      font-size: fluid(28px, 40px);
+    }
+  }
+
+  &__title-accent {
+    display: block;
+    color: $primary;
+  }
+
+  &__descr {
+    font-size: 16px;
+    line-height: 1.2;
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 665 / 400;
+    border-radius: 10px;
+    object-fit: cover;
+
+    @include media("lg") {
+      order: -1;
+    }
+  }
+}

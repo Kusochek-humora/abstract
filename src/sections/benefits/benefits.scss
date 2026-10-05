@@ -1,0 +1,86 @@
+@use "@/styles/abstracts" as *;
+
+.benefits {
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    align-items: center;
+
+    @include media("lg") {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &__title {
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+
+    @include media("md") {
+      font-size: fluid(28px, 40px);
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  &__icon {
+    flex-shrink: 0; // размеры заданы в самих svg (64×64)
+    color: $violet;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  &__name {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: $primary;
+  }
+
+  &__text {
+    max-width: 480px;
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+    border-radius: 10px;
+    object-fit: cover;
+
+    @include media("lg") {
+      order: -1;
+      height: auto;
+      aspect-ratio: 665 / 562;
+    }
+  }
+}

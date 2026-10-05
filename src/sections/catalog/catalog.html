@@ -1,0 +1,113 @@
+<section class="catalog" id="catalog">
+  <div class="container">
+    <div class="catalog__head">
+      <h1 class="catalog__title">Каталог фасадных решений</h1>
+      <p class="catalog__lead">Алюминиевые системы для частных, коммерческих и архитектурных объектов</p>
+    </div>
+
+    <div class="catalog__layout">
+      <aside class="catalog__aside">
+        <button class="catalog__filters-toggle btn btn--outline" type="button" aria-expanded="false" aria-controls="filters">Фильтры</button>
+
+        <form class="filters" id="filters" action="#" method="get">
+          <div class="filters__block">
+            <h2 class="filters__title">Категории</h2>
+            <ul class="filters__cats">
+              <li><button class="filters__cat is-active" type="button" data-cat="all"><icon name="logo-mark" class="filters__cat-icon"></icon>Все</button></li>
+              <li><button class="filters__cat" type="button" data-cat="panels">Фасадные панели</button></li>
+              <li><button class="filters__cat" type="button" data-cat="cubic">Кубические рейки</button></li>
+              <li><button class="filters__cat" type="button" data-cat="rack">Реечные системы</button></li>
+              <li><button class="filters__cat" type="button" data-cat="trim">Доборные элементы</button></li>
+            </ul>
+          </div>
+
+          <div class="filters__block">
+            <h2 class="filters__title" id="filters-search-title">Поиск</h2>
+            <label class="filters__search">
+              <icon name="search" class="filters__search-icon"></icon>
+              <input class="filters__search-input" type="search" name="q" placeholder="Введите название или параметры" aria-labelledby="filters-search-title" />
+            </label>
+          </div>
+
+          <div class="filters__block" role="group" aria-labelledby="filters-purpose" data-group>
+            <div class="filters__row">
+              <h2 class="filters__title" id="filters-purpose">Назначение</h2>
+              <button class="filters__reset" type="button" data-reset>Удалить</button>
+            </div>
+            <label class="check"><input class="check__input" type="checkbox" name="purpose" value="all" /><span class="check__box"></span><span class="check__text">Все</span></label>
+            <label class="check"><input class="check__input" type="checkbox" name="purpose" value="facade" /><span class="check__box"></span><span class="check__text">Фасад</span></label>
+            <label class="check"><input class="check__input" type="checkbox" name="purpose" value="interior" /><span class="check__box"></span><span class="check__text">Интерьер</span></label>
+            <label class="check"><input class="check__input" type="checkbox" name="purpose" value="entrance" /><span class="check__box"></span><span class="check__text">Входные группы</span></label>
+          </div>
+
+          <div class="filters__block" role="group" aria-labelledby="filters-coating" data-group>
+            <div class="filters__row">
+              <h2 class="filters__title" id="filters-coating">Покрытие</h2>
+              <button class="filters__reset" type="button" data-reset>Удалить</button>
+            </div>
+            <label class="check check--radio"><input class="check__input" type="radio" name="coating" value="powder" /><span class="check__box"></span><span class="check__text">Порошковое</span></label>
+            <label class="check check--radio"><input class="check__input" type="radio" name="coating" value="anodized" /><span class="check__box"></span><span class="check__text">Анодирование</span></label>
+          </div>
+
+          <div class="filters__block" role="group" aria-labelledby="filters-size" data-group>
+            <div class="filters__row">
+              <h2 class="filters__title" id="filters-size">Размеры</h2>
+              <button class="filters__reset" type="button" data-reset>Удалить</button>
+            </div>
+            <input class="filters__range" type="range" name="size" min="0" max="100" value="0" aria-labelledby="filters-size" />
+            <div class="filters__range-labels"><span>0</span><span>100</span></div>
+          </div>
+
+          <div class="filters__actions">
+            <button class="filters__reset-all" type="reset">Удалить все</button>
+            <button class="btn btn--primary filters__apply" type="submit">Применить</button>
+          </div>
+        </form>
+      </aside>
+
+      <div class="catalog__main">
+        <div class="catalog__toolbar">
+          <ul class="catalog__tags" aria-label="Выбранные фильтры"></ul>
+
+          <div class="catalog__sort">
+            <label class="catalog__sort-label">
+              <span class="visually-hidden">Сортировка</span>
+              <select class="catalog__select" name="sort" form="filters">
+                <option value="">Сортировать</option>
+                <option value="name">По названию</option>
+                <option value="size">По размеру</option>
+              </select>
+              <icon name="chevron-down" class="catalog__select-icon"></icon>
+            </label>
+            <p class="catalog__found">Найдено: 36 решений</p>
+          </div>
+        </div>
+
+        <ul class="catalog__grid">
+        <li class="catalog__item"><include src="src/components/catalog-card/catalog-card.html"></include></li>
+        <li class="catalog__item"><include src="src/components/catalog-card/catalog-card.html"></include></li>
+        <li class="catalog__item"><include src="src/components/catalog-card/catalog-card.html"></include></li>
+        <li class="catalog__item"><include src="src/components/catalog-card/catalog-card.html"></include></li>
+        <li class="catalog__item"><include src="src/components/catalog-card/catalog-card.html"></include></li>
+        <li class="catalog__item"><include src="src/components/catalog-card/catalog-card.html"></include></li>
+        <li class="catalog__item"><include src="src/components/catalog-card/catalog-card.html"></include></li>
+        <li class="catalog__item"><include src="src/components/catalog-card/catalog-card.html"></include></li>
+        <li class="catalog__item"><include src="src/components/catalog-card/catalog-card.html"></include></li>
+        <li class="catalog__item"><include src="src/components/catalog-card/catalog-card.html"></include></li>
+        <li class="catalog__item"><include src="src/components/catalog-card/catalog-card.html"></include></li>
+        <li class="catalog__item"><include src="src/components/catalog-card/catalog-card.html"></include></li>
+        </ul>
+
+        <nav class="pagination catalog__pagination" aria-label="Страницы каталога">
+          <ul class="pagination__list">
+            <li><a class="pagination__link is-active" href="?page=1" aria-current="page">1</a></li>
+            <li><a class="pagination__link" href="?page=2">2</a></li>
+            <li><a class="pagination__link" href="?page=3">3</a></li>
+            <li><a class="pagination__link" href="?page=4">4</a></li>
+            <li><a class="pagination__link" href="?page=2" aria-label="Следующая страница"><icon name="arrow-next"></icon></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>

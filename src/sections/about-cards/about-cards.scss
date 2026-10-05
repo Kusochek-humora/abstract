@@ -1,0 +1,100 @@
+@use "@/styles/abstracts" as *;
+
+.service-cards {
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include media("xl") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include media("sm") {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center; // содержимое по центру карточки по вертикали
+  align-items: flex-start;
+  min-height: 279px;
+  padding: 20px;
+  border-radius: 10px;
+
+  // размеры иконок заданы в самих svg (64 / 50 / 64)
+  &__icon {
+    flex-shrink: 0;
+    align-self: flex-start;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 1.2;
+  }
+
+  // карточка без иконки — текст сверху, как в макете
+  &--plain {
+    justify-content: flex-start;
+  }
+
+  &--dark {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    background-image: linear-gradient(135deg, #4b1584 0%, #6d2fb0 100%);
+    color: $white;
+
+    // фактура металла поверх градиента
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: url('@/assets/img/about-page/card-texture.webp') center / cover no-repeat;
+      mix-blend-mode: overlay;
+      opacity: 0.35;
+    }
+
+    .service-card__text {
+      opacity: 0.7;
+    }
+  }
+
+  &--mint {
+    background-color: rgba($accent, 0.4);
+    color: $primary; // иконка рисуется currentColor
+
+    .service-card__body {
+      color: $black;
+    }
+  }
+
+  &--lilac {
+    background-color: #e0d0f3;
+    color: $primary;
+
+    .service-card__body {
+      color: $black;
+    }
+  }
+}

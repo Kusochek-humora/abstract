@@ -1,0 +1,96 @@
+@use "@/styles/abstracts" as *;
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &__item {
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: $white;
+    transition: $transition;
+
+    // чётные пункты — сиреневые
+    &:nth-child(even) {
+      background-color: #ede2f7;
+    }
+  }
+
+  &__question {
+    margin: 0;
+  }
+
+  &__trigger {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 30px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    text-align: left;
+    cursor: pointer;
+
+    @include media("sm") {
+      padding: 16px 16px;
+      font-size: 16px;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $primary;
+      outline-offset: -2px;
+    }
+  }
+
+  // плюс превращается в крестик при открытии
+  &__icon {
+    flex-shrink: 0;
+    color: $primary;
+    transition: transform 0.3s ease;
+
+    @include media("sm") {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__item.is-open &__icon {
+    transform: rotate(45deg);
+  }
+
+  // плавное раскрытие: высота 0fr → 1fr
+  &__panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    visibility: hidden;
+    transition: grid-template-rows 0.3s ease, visibility 0s 0.3s;
+  }
+
+  &__item.is-open &__panel {
+    grid-template-rows: 1fr;
+    visibility: visible;
+    transition-delay: 0s;
+  }
+
+  &__answer {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  &__text {
+    padding: 0 30px 24px;
+    font-size: 14px;
+    line-height: 1.2;
+
+    @include media("sm") {
+      padding: 0 16px 16px;
+    }
+  }
+}

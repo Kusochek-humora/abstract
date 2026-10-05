@@ -196,11 +196,17 @@
     }
   }
 
+  // значок логотипа виден только у текущей страницы
   &__link-icon {
+    display: none;
     flex-shrink: 0;
     width: 25px;
     height: 25px;
     color: $primary;
+  }
+
+  &__link--active &__link-icon {
+    display: block;
   }
 
   &__socials {

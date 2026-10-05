@@ -1,0 +1,40 @@
+@use "@/styles/abstracts" as *;
+
+// <nav class="pagination"><ul class="pagination__list"><li><a class="pagination__link is-active">1</a>…
+.pagination {
+  &__list {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__link {
+    @include flex-center;
+    min-width: 40px;
+    height: 40px;
+    padding: 0 6px;
+    border-radius: 12px;
+    font-size: 20px;
+    line-height: 1;
+    transition: $transition;
+
+    @include hover {
+      background-color: rgba($primary, 0.12);
+    }
+
+    &.is-active {
+      background-color: $violet;
+      color: $white;
+      font-weight: 600;
+    }
+
+    svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}

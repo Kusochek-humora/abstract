@@ -1,0 +1,97 @@
+@use "@/styles/abstracts" as *;
+
+// Фон баннера по слоям из макета: фиолетовый градиент → чёрный 50% → фото
+@mixin page-hero-bg($image) {
+  background:
+    linear-gradient(180deg, rgba(92, 25, 161, 0) 20%, $primary 100%),
+    linear-gradient(rgba($black, 0.5), rgba($black, 0.5)),
+    url($image) center / cover no-repeat,
+    $dark;
+}
+
+// Баннер внутренних страниц: фото под градиентом, внизу хлебные крошки.
+// Шапка (fixed) лежит поверх. Для страниц с заголовком — вариант --tall (h1 и лид внутри .page-hero__inner).
+.page-hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 234px;
+  padding: 110px 0 40px;
+  @include page-hero-bg('@/assets/img/page-hero/page-hero-bg.webp');
+  color: $white;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  &__title {
+    max-width: 840px;
+    margin-top: 10px;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.02em;
+
+    @include media("md") {
+      font-size: fluid(26px, 40px);
+    }
+  }
+
+  &__lead {
+    max-width: 840px;
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.2;
+    opacity: 0.7;
+  }
+
+  // страница «О компании»
+  &--about {
+    @include page-hero-bg('@/assets/img/page-hero/about-hero.webp');
+  }
+
+  // страница проекта: h1, подзаголовок и лид в баннере
+  &--project {
+    @include page-hero-bg('@/assets/img/page-hero/project-hero.webp');
+  }
+
+  &__subtitle {
+    max-width: 840px;
+    margin-top: 10px;
+    font-size: 24px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: $lilac;
+
+    @include media("md") {
+      font-size: 18px;
+    }
+  }
+
+  &--tall + * {
+    margin-top: 40px;
+  }
+
+  &--tall {
+    min-height: 526px;
+    padding: 130px 0 83px;
+
+    &.page-hero--project {
+      min-height: 458px;
+      padding-bottom: 50px;
+    }
+
+    @include media("md") {
+      min-height: 0;
+      padding: 110px 0 40px;
+    }
+  }
+
+  // после баннера — не 80, а 50px до первого блока
+  & + * {
+    margin-top: 50px;
+  }
+}

@@ -293,6 +293,35 @@
   }
 }
 
+// вариант для страницы «Партнерство»: тёмный фон, 4 поля, справа большой логотип
+.cta--partner {
+  background:
+    linear-gradient(135deg, rgba(20, 21, 49, 0.95) 0%, rgba(92, 25, 161, 0.85) 100%),
+    url('@/assets/img/cta/cta-bg.webp') center / cover no-repeat,
+    $dark;
+
+  .cta__body {
+    grid-template-columns: 777fr 553fr;
+  }
+
+  .cta__decor {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    @include media("lg") {
+      display: none;
+    }
+  }
+
+  .cta__decor-logo {
+    width: 360px;
+    max-width: 100%;
+    height: auto;
+    color: $white;
+  }
+}
+
 // блок заявки стоит последним в main и «вдавлен» в футер на 20px
 main:has(> .cta:last-child) {
   margin-bottom: -20px;

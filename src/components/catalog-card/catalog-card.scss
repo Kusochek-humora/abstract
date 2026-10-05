@@ -1,0 +1,59 @@
+@use "@/styles/abstracts" as *;
+
+// Карточка товара: каталог и «Сопутствующие решения» на странице товара
+.catalog-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #e6d8f4;
+
+  &__img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 327 / 212;
+    object-fit: cover;
+  }
+
+  &__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 20px 0;
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  &__descr {
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  &__params {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: rgba($black, 0.5);
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+  }
+}

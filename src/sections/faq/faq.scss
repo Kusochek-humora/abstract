@@ -1,0 +1,16 @@
+@use "@/styles/abstracts" as *;
+
+.faq {
+  &__title {
+    margin-bottom: 40px;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+
+    @include media("md") {
+      margin-bottom: 24px;
+      font-size: fluid(28px, 40px);
+    }
+  }
+}

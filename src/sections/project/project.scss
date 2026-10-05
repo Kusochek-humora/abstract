@@ -1,0 +1,57 @@
+@use "@/styles/abstracts" as *;
+
+// узкая колонка 1115px по центру, как в макете
+.project {
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 1115px;
+    margin: 0 auto;
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1115 / 572;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: $primary;
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 1.2;
+  }
+
+  &__gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+
+    @include media("sm") {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__photo {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 553 / 350;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+}

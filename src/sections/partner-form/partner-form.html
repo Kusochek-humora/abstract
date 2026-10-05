@@ -1,0 +1,65 @@
+<section class="cta cta--partner" id="partner-form">
+  <div class="container cta__inner">
+    <div class="cta__head">
+      <div class="cta__intro">
+        <h2 class="cta__title">Оставить заявку<br />на сотрудничество</h2>
+        <p class="cta__subtitle">Оставьте информацию о компании или проекте — мы свяжемся с вами для обсуждения условий и подбора решения.</p>
+      </div>
+      <p class="cta__lead">Если у вас есть вопросы по продукции, требуется консультация или необходимо подготовить расчет материалов, оставьте заявку. Наши специалисты свяжутся с вами для уточнения деталей проекта.</p>
+    </div>
+
+    <div class="cta__body">
+      <form class="cta__form" action="#" method="post" novalidate data-validate>
+        <h3 class="cta__form-title">Обратная связь</h3>
+
+        <div class="cta__fields">
+          <div class="field cta__field">
+            <label class="cta__label" for="pf-name">ФИО</label>
+            <input class="cta__input" id="pf-name" name="name" type="text" required minlength="2" maxlength="100" autocomplete="name" />
+            <p class="field__error" role="alert" hidden></p>
+          </div>
+
+          <div class="field cta__field">
+            <label class="cta__label" for="pf-phone">Номер телефона</label>
+            <input class="cta__input" id="pf-phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" />
+            <p class="field__error" role="alert" hidden></p>
+          </div>
+
+          <div class="field cta__field">
+            <label class="cta__label" for="pf-email">Email</label>
+            <input class="cta__input" id="pf-email" name="email" type="email" required autocomplete="email" />
+            <p class="field__error" role="alert" hidden></p>
+          </div>
+
+          <div class="field cta__field">
+            <label class="cta__label" for="pf-company">Название компании</label>
+            <input class="cta__input" id="pf-company" name="company" type="text" maxlength="150" autocomplete="organization" />
+            <p class="field__error" role="alert" hidden></p>
+          </div>
+
+          <div class="field cta__field cta__field--wide">
+            <label class="cta__label" for="pf-message">Вопросы и предложения</label>
+            <textarea class="cta__input cta__input--textarea" id="pf-message" name="message" rows="2" maxlength="1000"></textarea>
+            <p class="field__error" role="alert" hidden></p>
+          </div>
+        </div>
+
+        <div class="field cta__agree">
+          <label class="cta__check">
+            <input class="cta__check-input" type="checkbox" name="agree" required />
+            <span class="cta__check-box" aria-hidden="true"></span>
+            <span class="cta__check-text">Я соглашаюсь с политикой компании и разрешаю обработку персональных данных</span>
+          </label>
+          <p class="field__error" role="alert" hidden></p>
+        </div>
+
+        <button class="btn btn--primary cta__submit" type="submit">Отправить заявку</button>
+        <p class="field__success" role="status" hidden>Спасибо! Мы свяжемся с вами в ближайшее время.</p>
+      </form>
+
+      <div class="cta__decor" aria-hidden="true">
+        <icon name="logo" class="cta__decor-logo"></icon>
+      </div>
+    </div>
+  </div>
+</section>

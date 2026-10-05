@@ -1,0 +1,86 @@
+@use "@/styles/abstracts" as *;
+
+// Фиолетовая полоса на всю ширину: градиент + фактура металла (как в hero)
+.clients {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  padding: 40px 0;
+  background-image: $gradient-primary;
+  color: $white;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: url('@/assets/img/hero/hero-texture.webp') center / cover no-repeat;
+    opacity: 0.2;
+  }
+
+  &__title {
+    margin-bottom: 40px;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+
+    @include media("md") {
+      margin-bottom: 24px;
+      font-size: fluid(28px, 40px);
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include media("xl") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include media("sm") {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.client-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: $white;
+  color: $black;
+
+  &__img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 327 / 236;
+    object-fit: cover;
+  }
+
+  &__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px 20px 30px;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 1.2;
+    color: rgba($black, 0.6);
+  }
+}
